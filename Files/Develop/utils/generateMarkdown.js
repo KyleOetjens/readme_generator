@@ -82,7 +82,7 @@ ${data.projectTest}`;
     createReadme(mdFile)
 }
 function createReadme(mdFile) {
-    fs.writeToFile(`README.MD`, mdFile, (err) =>
+    fs.writeFile(`README.MD`, mdFile, (err) =>
         err ? console.error(err) : console.log(`Check out your README`)
     )
 }
