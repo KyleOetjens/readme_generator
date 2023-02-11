@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require(`./utils/generateMarkdown`)
+const gM = require(`./utils/generateMarkdown`)
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -65,7 +65,7 @@ const questions = [
 function init() {inquirer
   .prompt(questions)
   .then((data) =>{
-    generateMarkdown(data)
+    gM.renderLicenseBadge(data)
     console.log(`thanks`);
 })};
 

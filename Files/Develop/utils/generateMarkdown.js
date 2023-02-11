@@ -1,7 +1,19 @@
 const fs = require('fs');
+/*[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)]
+(https://opensource.org/licenses/Apache-2.0)
+*/
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) { }
+function renderLicenseBadge(data) { 
+    let licenseBadge = data.projectLicense
+    switch (licenseBadge) {
+        case `Apache License 2.0`: {
+            let licenseBadge = `![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)`
+            generateMarkdown(data,licenseBadge)
+        }
+            break;}
+    console.log(`made it`);
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -12,13 +24,13 @@ function renderLicenseLink(license) { }
 function renderLicenseSection(license) { }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+function generateMarkdown(data,licenseBadge) {
     console.log(data.projectTitle);
     const mdFile = `# ${data.projectTitle}
 
 ## Description
 ${data.projectDesc}
-
+${licenseBadge}
 ## Table of Contents (Optional)
 
 ${data.projectInstal}
@@ -70,8 +82,11 @@ ${data.projectTest}`;
     createReadme(mdFile)
 }
 function createReadme(mdFile) {
-    fs.writeFile(`README.MD`, mdFile, (err) =>
+    fs.writeToFile(`README.MD`, mdFile, (err) =>
         err ? console.error(err) : console.log(`Check out your README`)
     )
 }
-module.exports = generateMarkdown;
+module.exports = {
+    renderLicenseBadge,
+    generateMarkdown
+  };
