@@ -27,6 +27,16 @@ const questions = [
   },
   {
     type: 'input',
+    message: 'Please give credit to those who helped on this project',
+    name: 'projectCredit',
+  },
+  {
+    type: 'input',
+    message: 'Please provide the features of your project',
+    name: 'projectFeatures',
+  },
+  {
+    type: 'input',
     message: 'Please provide contribution information',
     name: 'projectContrib',
   },
@@ -34,6 +44,16 @@ const questions = [
     type: 'input',
     message: 'Please provide testing information',
     name: 'projectTest',
+  },
+  {
+    type: 'input',
+    message: 'Please provide your git hub user name (exapmle, KyleOetjens)',
+    name: 'projectUserName',
+  },
+  {
+    type: 'input',
+    message: 'Please provide your email so othes can reach you',
+    name: 'projectEmail',
   },
   {
     type: 'list',
@@ -71,6 +91,8 @@ function init() {inquirer
 
 // Function call to initialize app
 init()
+
+
 
 
 
