@@ -1,7 +1,6 @@
 const fs = require('fs');
+const path = require(`path`)
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(data) {
     let licenseBadge = data.projectLicense
     switch (licenseBadge) {
@@ -98,21 +97,11 @@ function renderLicenseBadge(data) {
     }
 }
 
-/*
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) { }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) { }
-*/
-
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data, licenseBadge, licenseMd, licenseLink) {
     console.log(data.projectTitle);
-if (licenseMd === ``) {
-    const mdFileNl = `# ${data.projectTitle}
+    if (licenseMd === ``) {
+        const mdFileNl = `# ${data.projectTitle}
 
 ## Description  
 
@@ -156,7 +145,7 @@ ${data.projectContrib}
 ${data.projectTest}
 
 ## Questions
-find me on github at [${data.projectUserName}](github.com/${data.projectUserName})  
+find me on github at [${data.projectUserName}](https://github.com/${data.projectUserName})  
   
 email me at ${data.projectEmail}`;
         createReadme(mdFileNl)
@@ -191,6 +180,8 @@ ${data.projectUsage}
 
 ## Credits
 
+${data.projectCredit}
+
 ${licenseMd}
 
 This project is licensed under ${data.projectLicense}. For more information, please visit ${licenseLink}
@@ -210,7 +201,7 @@ ${data.projectContrib}
 ${data.projectTest}
 
 ## Questions
-find me on github at [${data.projectUserName}](github.com/${data.projectUserName}) 
+find me on github at [${data.projectUserName}](https://github.com/${data.projectUserName}) 
   
 
 email me at ${data.projectEmail}`;
@@ -219,7 +210,7 @@ email me at ${data.projectEmail}`;
     }
 }
 function createReadme(something) {
-    fs.writeFile(`README.MD`, something, (err) =>
+    fs.writeFile(path.join(__dirname,`/dist`,`README.MD`), something, (err) =>
         err ? console.error(err) : console.log(`Check out your README`)
     )
 }
