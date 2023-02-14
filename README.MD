@@ -22,6 +22,9 @@ No instal needed
 ## Usage
 
 type node index.js in to the terminal, follow the prompts.  Once complete. find your generated README in the utils/dist folder.
+
+[video of generation](./Files/Develop/scrncastreadmegen.webm)
+
 ## Credits  
 
 Meg Meyers (tutor), Ask BCS
